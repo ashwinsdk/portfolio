@@ -1,0 +1,100 @@
+.page-navigation {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.page-nav-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.page-nav-button::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-nav-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.page-nav-button:hover::before {
+    opacity: 1;
+}
+
+.page-nav-button:active {
+    transform: scale(0.98);
+}
+
+.page-nav-button:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 4px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+.page-nav-button:hover .nav-icon {
+    transform: scale(1.1);
+}
+
+/* Reduced motion */
+[data-reduced-motion="true"] .page-nav-button,
+[data-reduced-motion="true"] .page-nav-button::before,
+[data-reduced-motion="true"] .nav-icon {
+    transition: none;
+}
+
+[data-reduced-motion="true"] .page-nav-button:hover {
+    transform: none;
+}
+
+[data-reduced-motion="true"] .page-nav-button:hover .nav-icon {
+    transform: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .page-navigation {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .page-nav-button {
+        width: 48px;
+        height: 48px;
+    }
+
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

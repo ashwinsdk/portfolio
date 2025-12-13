@@ -1,0 +1,120 @@
+.contact-section {
+    padding: 100px 20px 60px;
+}
+
+.contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey);
+    margin-bottom: 48px;
+    letter-spacing: 0.5px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+    min-width: 320px;
+    letter-spacing: 0.5px;
+}
+
+.contact-link:hover {
+    border-color: var(--blue);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.footer {
+    text-align: center;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: var(--grey);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--blue);
+}
+
+.footer-separator {
+    color: var(--grey);
+}
+
+@media (max-width: 768px) {
+    .contact-links {
+        gap: 16px;
+    }
+
+    .contact-link {
+        min-width: 280px;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .contact-link {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+[data-reduced-motion="true"] .contact-link {
+    transition: none;
+}
+
+[data-reduced-motion="true"] .contact-link:hover {
+    transform: none;
+}

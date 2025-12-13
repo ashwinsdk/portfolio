@@ -1,0 +1,23 @@
+.work-approach-section {
+    padding: 80px 20px;
+}
+
+.work-approach-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.work-approach-text {
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .work-approach-section {
+        padding: 60px 16px;
+    }
+}

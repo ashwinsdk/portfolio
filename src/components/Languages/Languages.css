@@ -1,0 +1,17 @@
+.languages-section {
+    padding: 60px 20px;
+}
+
+.languages-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.languages-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,23 @@
+.summary-section {
+    padding: 60px 20px;
+}
+
+.summary-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.summary-text {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .summary-section {
+        padding: 48px 16px;
+    }
+}

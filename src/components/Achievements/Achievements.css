@@ -1,0 +1,36 @@
+.achievements-section {
+    padding: 80px 20px;
+}
+
+.achievements-list {
+    max-width: 900px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+
+.achievements-list li {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.achievements-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 24px;
+    top: -2px;
+}
+
+@media (max-width: 768px) {
+    .achievements-list li {
+        font-size: 15px;
+        padding-left: 28px;
+    }
+}

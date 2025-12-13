@@ -1,0 +1,136 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.hero-title {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 600;
+    letter-spacing: 6px;
+    margin-bottom: 24px;
+    color: var(--white);
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(0, 170, 255, 0.15);
+    line-height: 1.1;
+}
+
+.hero-role {
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 300;
+    color: var(--grey);
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+.hero-summary {
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 48px;
+    line-height: 1.8;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-primary,
+.cta-secondary {
+    padding: 14px 32px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    border: 1px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-primary:hover,
+.cta-secondary:hover {
+    background: var(--white);
+    color: var(--black);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.cta-primary:active,
+.cta-secondary:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        letter-spacing: 4px;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        letter-spacing: 2px;
+    }
+}
+
+[data-reduced-motion="true"] .hero-content {
+    animation: none;
+}
+
+[data-reduced-motion="true"] .cta-primary:hover,
+[data-reduced-motion="true"] .cta-secondary:hover {
+    transform: none;
+}

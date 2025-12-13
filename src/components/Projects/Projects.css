@@ -1,0 +1,425 @@
+/* Projects Section - Premium Showcase */
+.projects-section {
+    padding: 120px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.projects-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.projects-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: var(--white);
+    margin: 20px auto 0;
+    opacity: 0.6;
+}
+
+/* Stage Container */
+.projects-stage {
+    width: 100%;
+    max-width: 1400px;
+    height: 550px;
+    position: relative;
+    margin: 0 auto;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.stage-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Project Card - Dark Glass Panel */
+.project-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -240px;
+    width: 600px;
+    max-width: 90vw;
+    height: 480px;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.7s ease;
+    will-change: transform, opacity;
+    transform-origin: center center;
+}
+
+.project-card.adjacent {
+    cursor: pointer;
+}
+
+.project-card.expanded {
+    height: auto;
+    min-height: 480px;
+}
+
+.card-glass {
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.card-glass.hovered {
+    transform: perspective(1000px) rotateY(2deg) rotateX(-1deg);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 12px 48px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Inner Glow Lines */
+.glow-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.glow-line {
+    position: absolute;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+}
+
+.glow-line.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+.glow-line.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+.glow-line.left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+}
+
+.glow-line.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            transparent 100%);
+}
+
+/* Card Content */
+.card-content {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.project-name {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.project-description {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.8;
+    opacity: 0.95;
+    margin: 0;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-pill {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 14px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tag-pill:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(0, 170, 255, 0.05);
+}
+
+.repository-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.github-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.repository-link:hover {
+    border-bottom-color: var(--blue);
+    color: var(--white);
+}
+
+.repository-link:hover .github-icon {
+    opacity: 1;
+}
+
+/* Stage Controls */
+.stage-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 60px;
+}
+
+.control-arrow {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-arrow.active {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--white);
+}
+
+.control-arrow.active:hover {
+    border-color: var(--blue);
+    color: var(--white);
+    background: rgba(0, 170, 255, 0.05);
+    box-shadow: 0 0 12px rgba(0, 170, 255, 0.15);
+}
+
+.control-arrow.disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-indicator {
+    font-size: 13px;
+    color: var(--grey);
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    min-width: 70px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 80px 20px;
+    }
+
+    .projects-title {
+        margin-bottom: 60px;
+    }
+
+    .projects-stage {
+        height: 500px;
+    }
+
+    .project-card {
+        width: 500px;
+        height: 440px;
+        margin-left: -250px;
+        margin-top: -220px;
+    }
+
+    .card-content {
+        padding: 36px 32px;
+        gap: 16px;
+    }
+
+    .project-name {
+        font-size: 24px;
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+
+    .stage-controls {
+        margin-top: 50px;
+        gap: 24px;
+    }
+
+    .control-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .projects-section {
+        padding: 60px 16px;
+    }
+
+    .projects-title {
+        margin-bottom: 50px;
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .projects-stage {
+        height: 460px;
+    }
+
+    .project-card {
+        width: 90vw;
+        max-width: 400px;
+        height: 420px;
+        margin-left: calc(-45vw);
+        margin-top: -210px;
+    }
+
+    .card-content {
+        padding: 32px 24px;
+        gap: 14px;
+    }
+
+    .project-name {
+        font-size: 22px;
+    }
+
+    .project-description {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .project-tags {
+        gap: 8px;
+    }
+
+    .tag-pill {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+
+    .repository-link {
+        font-size: 13px;
+    }
+
+    .stage-controls {
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .control-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .progress-indicator {
+        font-size: 12px;
+    }
+}
+
+/* Reduced Motion Support */
+[data-reduced-motion="true"] .project-card {
+    transition: opacity 0.3s ease;
+}
+
+[data-reduced-motion="true"] .card-glass.hovered {
+    transform: none;
+}
+
+[data-reduced-motion="true"] .control-arrow,
+[data-reduced-motion="true"] .tag-pill,
+[data-reduced-motion="true"] .repository-link {
+    transition: none;
+}
+
+/* Focus States for Accessibility */
+.project-card:focus,
+.control-arrow:focus,
+.repository-link:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+}
+
+.tag-pill:focus {
+    outline: 1px solid var(--blue);
+    outline-offset: 2px;
+}

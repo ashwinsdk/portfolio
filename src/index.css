@@ -1,0 +1,107 @@
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --blue: lab(66.3894% -5.37798 -55.7933);
+  --blue-fallback: #00AAFF;
+  --grey: lab(65.896% 0 0);
+  --grey-fallback: #A0A0A0;
+
+  --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, monospace;
+}
+
+@supports not (color: lab(0% 0 0)) {
+  :root {
+    --blue: var(--blue-fallback);
+    --grey: var(--grey-fallback);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--white);
+  color: var(--black);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+  font-size: 14px;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Focus styles */
+a:focus,
+button:focus {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+  box-shadow: 0 0 8px var(--blue);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white);
+}
